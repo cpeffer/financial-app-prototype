@@ -93,6 +93,29 @@ The frontend will run on `http://localhost:3000`
 7. Export your data using "Export to CSV" or "Copy to Clipboard"
 8. Click "New Receipt" to process another receipt
 
+## Setting Up Google Cloud Vision API
+
+The app uses Google Cloud Vision API for OCR. Without it, only mock data will be returned.
+
+**Quick Setup:**
+
+1. Get a Google Cloud Vision API key (see [GOOGLE_CLOUD_SETUP.md](GOOGLE_CLOUD_SETUP.md) for detailed instructions)
+2. Create a `.env` file in the project root:
+   ```
+   GOOGLE_VISION_API_KEY=your_api_key_here
+   ```
+3. Restart the Flask server
+
+**Test with example receipts:**
+```bash
+source venv/bin/activate
+python test_receipt.py examples/receipt_1.jpeg
+```
+
+This will show you the extracted text and parsed items.
+
+See [GOOGLE_CLOUD_SETUP.md](GOOGLE_CLOUD_SETUP.md) for complete setup instructions.
+
 ## API Endpoints
 
 ### POST `/api/process-receipt`

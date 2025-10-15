@@ -39,19 +39,35 @@ Both servers are currently running and ready to use!
 ## Important Notes
 
 ### OCR Processing
-The app currently uses **mock data** because no Google Cloud Vision API key is configured. To enable real OCR:
+The app uses **Google Cloud Vision API** for OCR. You need to set this up to process real receipts.
 
-1. Get a Google Cloud Vision API key:
-   - Go to https://console.cloud.google.com
-   - Create a project and enable Vision API
-   - Create an API key
-
-2. Create a `.env` file in the project root:
+**Quick Setup:**
+1. Get a Google Cloud Vision API key (see [GOOGLE_CLOUD_SETUP.md](GOOGLE_CLOUD_SETUP.md))
+2. Create a `.env` file:
    ```
    GOOGLE_VISION_API_KEY=your_actual_api_key_here
    ```
-
 3. Restart the Flask server
+
+**Test without the web app:**
+```bash
+# Test a single receipt
+source venv/bin/activate
+export GOOGLE_VISION_API_KEY='your-key-here'  # if not using .env
+python test_receipt.py examples/receipt_1.jpeg
+
+# Test all receipts in examples/ folder
+python batch_test.py
+```
+
+The improved parsing logic now handles:
+- ✅ Multiple price formats ($12.99, 12.99, etc.)
+- ✅ Quantity detection (2 APPLES $3.99)
+- ✅ Item numbers (SKU, #, etc.)
+- ✅ Filtering out subtotals, tax, payment lines
+- ✅ Better vendor name detection
+
+See [PARSING_IMPROVEMENTS.md](PARSING_IMPROVEMENTS.md) for details.
 
 ### Running the Servers Again
 
