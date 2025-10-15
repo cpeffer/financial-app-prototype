@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Add Expense - Receipt Tracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3>Add New Expense</h3>
+            </div>
+            <div class="card-body">
+                {% if not manual_mode %}
+                <div class="alert alert-info">
+                    <strong>How it works:</strong> Upload or take a photo of your receipt, and we'll automatically extract all the items and costs for you!
+                </div>
+                {% endif %}
+                
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="receipt_image" class="form-label">Receipt Image *</label>
+                        <input type="file" class="form-control" id="receipt_image" name="receipt_image" 
+                               accept="image/*" capture="environment" required>
+                        <small class="form-text text-muted">Upload or take a photo of your receipt. We'll extract the items automatically.</small>
+                    </div>
+                    
+                    {% if manual_mode %}
+                    <input type="hidden" name="is_review" value="true">
+                    <input type="hidden" name="image_path" value="{{ image_path }}">
+                    <input type="hidden" name="line_items_count" value="0">
+                    
+                    <div class="alert alert-warning">
+                        Could not automatically extract receipt data. Please enter the details manually.
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="vendor" class="form-label">Vendor/Store Name *</label>
+                        <input type="text" class="form-control" id="vendor" name="vendor" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Total Amount ($) *</label>
+                        <input type="number" class="form-control" id="amount" name="amount" 
+                               step="0.01" min="0.01" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date of Purchase *</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category *</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Select a category...</option>
+                            {% for cat in categories %}
+                                <option value="{{ cat }}">{{ cat }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            {% if manual_mode %}Save Expense{% else %}Analyze Receipt{% endif %}
+                        </button>
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Set default date to today
+    document.addEventListener('DOMContentLoaded', function() {
+        const dateInput = document.getElementById('date');
+        if (dateInput && !dateInput.value) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+        }
+    });
+    
+    // Preview image when selected
+    const imageInput = document.getElementById('receipt_image');
+    if (imageInput) {
+        imageInput.addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const file = e.target.files[0];
+                const fileSize = file.size / 1024 / 1024; // in MB
+                if (fileSize > 16) {
+                    alert('File size must be less than 16MB');
+                    e.target.value = '';
+                }
+            }
+        });
+    }
+</script>
+{% endblock %}

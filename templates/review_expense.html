@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Review Receipt - Receipt Tracker{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>Review Receipt Details</h2>
+        <p class="text-muted">Please review and edit the extracted information below.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Receipt Image</h5>
+            </div>
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename=image_path) }}" 
+                     class="img-fluid rounded" 
+                     style="max-height: 500px;"
+                     alt="Receipt Image">
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Extracted Information</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('add_expense') }}">
+                    <input type="hidden" name="is_review" value="true">
+                    <input type="hidden" name="image_path" value="{{ image_path }}">
+                    
+                    <div class="mb-3">
+                        <label for="vendor" class="form-label">Vendor/Store Name *</label>
+                        <input type="text" class="form-control" id="vendor" name="vendor" 
+                               value="{{ receipt_data.vendor }}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date *</label>
+                        <input type="date" class="form-control" id="date" name="date" 
+                               value="{{ receipt_data.date }}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Total Amount ($) *</label>
+                        <input type="number" class="form-control" id="amount" name="amount" 
+                               step="0.01" min="0.01" value="{{ receipt_data.total }}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category *</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Select a category...</option>
+                            {% for cat in categories %}
+                                <option value="{{ cat }}">{{ cat }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h5 class="mb-3">Line Items</h5>
+                    <div id="line-items-container">
+                        {% if receipt_data.items %}
+                            {% for item in receipt_data.items %}
+                            <div class="card mb-2 line-item">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-2">
+                                            <label class="form-label small">Item Name</label>
+                                            <input type="text" class="form-control form-control-sm" 
+                                                   name="item_name_{{ loop.index0 }}" 
+                                                   value="{{ item.name }}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label small">Quantity</label>
+                                            <input type="number" class="form-control form-control-sm" 
+                                                   name="item_quantity_{{ loop.index0 }}" 
+                                                   step="0.01" value="{{ item.quantity }}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label small">Unit Price</label>
+                                            <input type="number" class="form-control form-control-sm" 
+                                                   name="item_unit_price_{{ loop.index0 }}" 
+                                                   step="0.01" value="{{ item.unit_price }}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label small">Total</label>
+                                            <input type="number" class="form-control form-control-sm" 
+                                                   name="item_total_{{ loop.index0 }}" 
+                                                   step="0.01" value="{{ item.total }}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <input type="hidden" name="line_items_count" value="{{ receipt_data.items|length }}">
+                        {% else %}
+                            <p class="text-muted">No items extracted.</p>
+                            <input type="hidden" name="line_items_count" value="0">
+                        {% endif %}
+                    </div>
+                    
+                    {% if receipt_data.items %}
+                    <div class="alert alert-info">
+                        <small>
+                            <strong>Subtotal:</strong> ${{ "%.2f"|format(receipt_data.subtotal or 0) }}<br>
+                            <strong>Tax:</strong> ${{ "%.2f"|format(receipt_data.tax or 0) }}<br>
+                            <strong>Total:</strong> ${{ "%.2f"|format(receipt_data.total or 0) }}
+                        </small>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Save Expense</button>
+                        <a href="{{ url_for('add_expense') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
