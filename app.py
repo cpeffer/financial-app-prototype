@@ -88,25 +88,31 @@ def parse_receipt_text(text):
             continue
         # Expanded list of words to skip
         skip_words = ['receipt', 'tax invoice', 'invoice', 'order', 'sale', 'your', 'card', 'here', 
-                      'fenway', 'park', 'welcome', 'thank', 'visit', 'www', 'http', '.com']
-        if line.lower() in skip_words or any(skip in line.lower() for skip in skip_words):
+                      'fenway', 'park', 'welcome', 'thank', 'visit', 'www', 'http', '.com', 'member']
+        if line.lower() in skip_words:
             continue
-        # Look for lines that are likely business names (usually 2-4 words, many caps, not too long)
+        # Skip lines that start with "Member #" or similar
+        if re.match(r'^(member|customer|account)\s*[#:]?\s*\d', line, re.IGNORECASE):
+            continue
+        # Look for lines that are likely business names (usually 1-4 words, many caps, not too long)
         words = line.split()
         if 1 <= len(words) <= 4 and not re.match(r'^\d', line):
             # Check if it has some capital letters and reasonable length
-            if any(c.isupper() for c in line) and 3 <= len(line) <= 30:
+            if any(c.isupper() for c in line) and 3 <= len(line) <= 40:
                 # Additional check: make sure it's not a common header phrase
-                if not any(word.lower() in ['table', 'server', 'check', 'guest'] for word in words):
+                if not any(word.lower() in ['table', 'server', 'check', 'guest', 'street', 'st', 'ave', 'blvd'] for word in words):
                     vendor = line
                     break
     
     # If vendor is still one of the skip words, try to find a better match
-    if vendor.lower() in ['card here', 'your', 'card', 'here']:
+    if vendor.lower() in ['card here', 'your', 'card', 'here'] or 'member' in vendor.lower():
         for i, line in enumerate(lines[:20]):
-            if len(line) >= 5 and 'bar' in line.lower() or 'restaurant' in line.lower() or 'cafe' in line.lower():
-                vendor = line
-                break
+            # Look for common store indicators
+            if len(line) >= 5:
+                line_lower = line.lower()
+                if any(word in line_lower for word in ['bar', 'restaurant', 'cafe', 'costco', 'walmart', 'target', 'whole foods', 'trader', 'market']):
+                    vendor = line
+                    break
     
     # Common skip words that indicate non-item lines
     skip_keywords = [
@@ -158,9 +164,20 @@ def parse_receipt_text(text):
         # Pattern 1: Quantity + Item + Price on same line (e.g., "2 APPLES $3.99" or "2 APPLES 3.99")
         match = re.match(r'^(\d+)\s+(.+?)\s+(\d+\.\d{2})\s*$', line)
         if match:
-            quantity = match.group(1)
+            potential_qty = match.group(1)
             name = match.group(2).strip()
             price = match.group(3)
+            
+            # Check if the "quantity" is actually an item number (Costco format)
+            # Item numbers are typically 5-7+ digits, quantities are typically 1-99
+            if len(potential_qty) >= 5:
+                # This is likely: ITEMNUMBER ITEMNAME PRICE (Costco format)
+                item_number = potential_qty
+                quantity = '1'
+            else:
+                # This is: QUANTITY ITEMNAME PRICE (restaurant format)
+                quantity = potential_qty
+                item_number = ''
             
             # Clean up name
             name = re.sub(r'#\s*\d+', '', name)
@@ -171,7 +188,7 @@ def parse_receipt_text(text):
                 items.append({
                     'quantity': quantity,
                     'name': name,
-                    'itemNumber': '',
+                    'itemNumber': item_number,
                     'price': price
                 })
             i += 1
@@ -181,7 +198,7 @@ def parse_receipt_text(text):
         # e.g., "1 HARPOON IPA DRAFT" followed by "9.00"
         match = re.match(r'^(\d+)\s+(.+)$', line)
         if match and i + 1 < len(lines):
-            quantity = match.group(1)
+            potential_qty = match.group(1)
             name = match.group(2).strip()
             
             # Check if next line is a price
@@ -190,6 +207,16 @@ def parse_receipt_text(text):
             
             if price_match:
                 price = price_match.group(1)
+                
+                # Check if the "quantity" is actually an item number (Costco format)
+                if len(potential_qty) >= 5:
+                    # This is likely: ITEMNUMBER ITEMNAME (Costco format)
+                    item_number = potential_qty
+                    quantity = '1'
+                else:
+                    # This is: QUANTITY ITEMNAME (restaurant format)
+                    quantity = potential_qty
+                    item_number = ''
                 
                 # Clean up name
                 name = re.sub(r'#\s*\d+', '', name)
@@ -202,7 +229,7 @@ def parse_receipt_text(text):
                         items.append({
                             'quantity': quantity,
                             'name': name,
-                            'itemNumber': '',
+                            'itemNumber': item_number,
                             'price': price
                         })
                 i += 2  # Skip both lines

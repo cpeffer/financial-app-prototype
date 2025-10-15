@@ -1,0 +1,582 @@
+[
+  {
+    "file": "examples/receipt_1 2.jpeg",
+    "vendor": "BLEACHER BAR",
+    "item_count": 13,
+    "items": [
+      {
+        "quantity": "4",
+        "name": "FIDDLEHEAD IPA",
+        "itemNumber": "",
+        "price": "9.00"
+      },
+      {
+        "quantity": "1",
+        "name": "ALLAGASH",
+        "itemNumber": "",
+        "price": "9.00"
+      },
+      {
+        "quantity": "2",
+        "name": "GUINNESS",
+        "itemNumber": "",
+        "price": "20.00"
+      },
+      {
+        "quantity": "1",
+        "name": "SAM SEASONAL",
+        "itemNumber": "",
+        "price": "9.00"
+      },
+      {
+        "quantity": "1",
+        "name": "CHEESE BURGER",
+        "itemNumber": "",
+        "price": "17.00"
+      },
+      {
+        "quantity": "1",
+        "name": "FRIED PICKLES",
+        "itemNumber": "",
+        "price": "12.00"
+      },
+      {
+        "quantity": "3",
+        "name": "CHOWDER",
+        "itemNumber": "",
+        "price": "21.00"
+      },
+      {
+        "quantity": "1",
+        "name": "SIDE CEASER",
+        "itemNumber": "",
+        "price": "5.00"
+      },
+      {
+        "quantity": "2",
+        "name": "TURKEY BLT",
+        "itemNumber": "",
+        "price": "34.00"
+      },
+      {
+        "quantity": "1",
+        "name": "FRIED CHX SAND",
+        "itemNumber": "",
+        "price": "17.00"
+      },
+      {
+        "quantity": "2",
+        "name": "GRILLED CHICK SAND",
+        "itemNumber": "",
+        "price": "32.00"
+      },
+      {
+        "quantity": "1",
+        "name": "ULTRA 12",
+        "itemNumber": "",
+        "price": "7.00"
+      },
+      {
+        "quantity": "3",
+        "name": "DOWNEAST",
+        "itemNumber": "",
+        "price": "27.00"
+      }
+    ]
+  },
+  {
+    "file": "examples/receipt_1.jpeg",
+    "vendor": "BLEACHER BAR",
+    "item_count": 13,
+    "items": [
+      {
+        "quantity": "4",
+        "name": "FIDDLEHEAD IPA",
+        "itemNumber": "",
+        "price": "9.00"
+      },
+      {
+        "quantity": "1",
+        "name": "ALLAGASH",
+        "itemNumber": "",
+        "price": "9.00"
+      },
+      {
+        "quantity": "2",
+        "name": "GUINNESS",
+        "itemNumber": "",
+        "price": "20.00"
+      },
+      {
+        "quantity": "1",
+        "name": "SAM SEASONAL",
+        "itemNumber": "",
+        "price": "9.00"
+      },
+      {
+        "quantity": "1",
+        "name": "CHEESE BURGER",
+        "itemNumber": "",
+        "price": "17.00"
+      },
+      {
+        "quantity": "1",
+        "name": "FRIED PICKLES",
+        "itemNumber": "",
+        "price": "12.00"
+      },
+      {
+        "quantity": "3",
+        "name": "CHOWDER",
+        "itemNumber": "",
+        "price": "21.00"
+      },
+      {
+        "quantity": "1",
+        "name": "SIDE CEASER",
+        "itemNumber": "",
+        "price": "5.00"
+      },
+      {
+        "quantity": "2",
+        "name": "TURKEY BLT",
+        "itemNumber": "",
+        "price": "34.00"
+      },
+      {
+        "quantity": "1",
+        "name": "FRIED CHX SAND",
+        "itemNumber": "",
+        "price": "17.00"
+      },
+      {
+        "quantity": "2",
+        "name": "GRILLED CHICK SAND",
+        "itemNumber": "",
+        "price": "32.00"
+      },
+      {
+        "quantity": "1",
+        "name": "ULTRA 12",
+        "itemNumber": "",
+        "price": "7.00"
+      },
+      {
+        "quantity": "3",
+        "name": "DOWNEAST",
+        "itemNumber": "",
+        "price": "27.00"
+      }
+    ]
+  },
+  {
+    "file": "examples/receipt_2.jpeg",
+    "vendor": "COSTCO",
+    "item_count": 33,
+    "items": [
+      {
+        "quantity": "1",
+        "name": "CLIFBARS26CT",
+        "itemNumber": "1532586",
+        "price": "7.49"
+      },
+      {
+        "quantity": "1",
+        "name": "IZZE VARIETY",
+        "itemNumber": "1795394",
+        "price": "17.99"
+      },
+      {
+        "quantity": "1",
+        "name": "COORS LGT 36",
+        "itemNumber": "963857",
+        "price": "2.40"
+      },
+      {
+        "quantity": "1",
+        "name": "SWEET POTATO",
+        "itemNumber": "61576",
+        "price": "5.99"
+      },
+      {
+        "quantity": "1",
+        "name": "ORG ATAULFO",
+        "itemNumber": "1018249",
+        "price": "8.99"
+      },
+      {
+        "quantity": "1",
+        "name": "BANANAS",
+        "itemNumber": "30669",
+        "price": "1.49"
+      },
+      {
+        "quantity": "1",
+        "name": "BANANAS",
+        "itemNumber": "30669",
+        "price": "1.49"
+      },
+      {
+        "quantity": "1",
+        "name": "KS 3 BERRY",
+        "itemNumber": "1010598",
+        "price": "10.99"
+      },
+      {
+        "quantity": "1",
+        "name": "OIKOS ZERO",
+        "itemNumber": "1271446",
+        "price": "12.89"
+      },
+      {
+        "quantity": "1",
+        "name": "KS THICK CUT",
+        "itemNumber": "905061",
+        "price": "13.49"
+      },
+      {
+        "quantity": "1",
+        "name": "KS CHIC TORT",
+        "itemNumber": "1766377",
+        "price": "9.69"
+      },
+      {
+        "quantity": "1",
+        "name": "BAGELS",
+        "itemNumber": "1335089",
+        "price": "7.99"
+      },
+      {
+        "quantity": "1",
+        "name": "JIF CREAMY",
+        "itemNumber": "917546",
+        "price": "10.99"
+      },
+      {
+        "quantity": "8",
+        "name": "2% MILK 1GAL",
+        "itemNumber": "",
+        "price": "2.55"
+      },
+      {
+        "quantity": "1",
+        "name": "AVOCA SPRAY",
+        "itemNumber": "1392843",
+        "price": "13.99"
+      },
+      {
+        "quantity": "1",
+        "name": "MIXED PEPPER",
+        "itemNumber": "60357",
+        "price": "6.89"
+      },
+      {
+        "quantity": "1",
+        "name": "CELERY SALAD",
+        "itemNumber": "47492",
+        "price": "13.12"
+      },
+      {
+        "quantity": "1",
+        "name": "QUESADILLA",
+        "itemNumber": "11748",
+        "price": "18.09"
+      },
+      {
+        "quantity": "1",
+        "name": "KS ITALIAN",
+        "itemNumber": "1735359",
+        "price": "10.49"
+      },
+      {
+        "quantity": "1",
+        "name": "NEW YORK STK",
+        "itemNumber": "33593",
+        "price": "59.88"
+      },
+      {
+        "quantity": "1",
+        "name": "POTATOES",
+        "itemNumber": "331100",
+        "price": "6.79"
+      },
+      {
+        "quantity": "131",
+        "name": "ORG BRUSSELS",
+        "itemNumber": "",
+        "price": "6.99"
+      },
+      {
+        "quantity": "1895",
+        "name": "CHERRY TOV",
+        "itemNumber": "",
+        "price": "7.49"
+      },
+      {
+        "quantity": "1",
+        "name": "REGGIANO",
+        "itemNumber": "34777",
+        "price": "17.10"
+      },
+      {
+        "quantity": "1",
+        "name": "ASPARAGUS",
+        "itemNumber": "94676",
+        "price": "6.79"
+      },
+      {
+        "quantity": "1",
+        "name": "SPRING MIX",
+        "itemNumber": "48757",
+        "price": "4.39"
+      },
+      {
+        "quantity": "1",
+        "name": "KS ORG BALS",
+        "itemNumber": "1359750",
+        "price": "13.89"
+      },
+      {
+        "quantity": "1",
+        "name": "LEG/THIGH MT",
+        "itemNumber": "47731",
+        "price": "29.56"
+      },
+      {
+        "quantity": "1",
+        "name": "KS ORG SALSA",
+        "itemNumber": "1385029",
+        "price": "9.49"
+      },
+      {
+        "quantity": "7812",
+        "name": "YELLOW ONION",
+        "itemNumber": "",
+        "price": "3.29"
+      },
+      {
+        "quantity": "1",
+        "name": "GREEK FREAK",
+        "itemNumber": "1799051",
+        "price": "7.99"
+      },
+      {
+        "quantity": "1",
+        "name": "CHOC CARAMEL",
+        "itemNumber": "607021",
+        "price": "12.49"
+      },
+      {
+        "quantity": "1",
+        "name": "AMOUNT:",
+        "itemNumber": "",
+        "price": "536.93"
+      }
+    ]
+  },
+  {
+    "file": "examples/receipt_2.png",
+    "vendor": "COSTCO",
+    "item_count": 33,
+    "items": [
+      {
+        "quantity": "1",
+        "name": "CLIFBARS26CT",
+        "itemNumber": "1532586",
+        "price": "7.49"
+      },
+      {
+        "quantity": "1",
+        "name": "IZZE VARIETY",
+        "itemNumber": "1795394",
+        "price": "17.99"
+      },
+      {
+        "quantity": "1",
+        "name": "COORS LGT 36",
+        "itemNumber": "963857",
+        "price": "2.40"
+      },
+      {
+        "quantity": "1",
+        "name": "SWEET POTATO",
+        "itemNumber": "61576",
+        "price": "5.99"
+      },
+      {
+        "quantity": "1",
+        "name": "ORG ATAULFO",
+        "itemNumber": "1018249",
+        "price": "8.99"
+      },
+      {
+        "quantity": "1",
+        "name": "BANANAS",
+        "itemNumber": "30669",
+        "price": "1.49"
+      },
+      {
+        "quantity": "1",
+        "name": "BANANAS",
+        "itemNumber": "30669",
+        "price": "1.49"
+      },
+      {
+        "quantity": "1",
+        "name": "KS 3 BERRY",
+        "itemNumber": "1010598",
+        "price": "10.99"
+      },
+      {
+        "quantity": "1",
+        "name": "OIKOS ZERO",
+        "itemNumber": "1271446",
+        "price": "12.89"
+      },
+      {
+        "quantity": "1",
+        "name": "KS THICK CUT",
+        "itemNumber": "905061",
+        "price": "13.49"
+      },
+      {
+        "quantity": "1",
+        "name": "KS CHIC TORT",
+        "itemNumber": "1766377",
+        "price": "9.69"
+      },
+      {
+        "quantity": "1",
+        "name": "BAGELS",
+        "itemNumber": "1335089",
+        "price": "7.99"
+      },
+      {
+        "quantity": "1",
+        "name": "JIF CREAMY",
+        "itemNumber": "917546",
+        "price": "10.99"
+      },
+      {
+        "quantity": "8",
+        "name": "2% MILK 1GAL",
+        "itemNumber": "",
+        "price": "2.55"
+      },
+      {
+        "quantity": "1",
+        "name": "AVOCA SPRAY",
+        "itemNumber": "1392843",
+        "price": "13.99"
+      },
+      {
+        "quantity": "1",
+        "name": "MIXED PEPPER",
+        "itemNumber": "60357",
+        "price": "6.89"
+      },
+      {
+        "quantity": "1",
+        "name": "CELERY SALAD",
+        "itemNumber": "47492",
+        "price": "13.12"
+      },
+      {
+        "quantity": "1",
+        "name": "QUESADILLA",
+        "itemNumber": "11748",
+        "price": "18.09"
+      },
+      {
+        "quantity": "1",
+        "name": "KS ITALIAN",
+        "itemNumber": "1735359",
+        "price": "10.49"
+      },
+      {
+        "quantity": "1",
+        "name": "NEW YORK STK",
+        "itemNumber": "33593",
+        "price": "59.88"
+      },
+      {
+        "quantity": "1",
+        "name": "POTATOES",
+        "itemNumber": "331100",
+        "price": "6.79"
+      },
+      {
+        "quantity": "131",
+        "name": "ORG BRUSSELS",
+        "itemNumber": "",
+        "price": "6.99"
+      },
+      {
+        "quantity": "1895",
+        "name": "CHERRY TOV",
+        "itemNumber": "",
+        "price": "7.49"
+      },
+      {
+        "quantity": "1",
+        "name": "REGGIANO",
+        "itemNumber": "34777",
+        "price": "17.10"
+      },
+      {
+        "quantity": "1",
+        "name": "ASPARAGUS",
+        "itemNumber": "94676",
+        "price": "6.79"
+      },
+      {
+        "quantity": "1",
+        "name": "SPRING MIX",
+        "itemNumber": "48757",
+        "price": "4.39"
+      },
+      {
+        "quantity": "1",
+        "name": "KS ORG BALS",
+        "itemNumber": "1359750",
+        "price": "13.89"
+      },
+      {
+        "quantity": "1",
+        "name": "LEG/THIGH MT",
+        "itemNumber": "47731",
+        "price": "29.56"
+      },
+      {
+        "quantity": "1",
+        "name": "KS ORG SALSA",
+        "itemNumber": "1385029",
+        "price": "9.49"
+      },
+      {
+        "quantity": "7812",
+        "name": "YELLOW ONION",
+        "itemNumber": "",
+        "price": "3.29"
+      },
+      {
+        "quantity": "1",
+        "name": "GREEK FREAK",
+        "itemNumber": "1799051",
+        "price": "7.99"
+      },
+      {
+        "quantity": "1",
+        "name": "CHOC CARAMEL",
+        "itemNumber": "607021",
+        "price": "12.49"
+      },
+      {
+        "quantity": "1",
+        "name": "AMOUNT:",
+        "itemNumber": "",
+        "price": "536.93"
+      }
+    ]
+  }
+]
