@@ -1,0 +1,15 @@
+{
+  "name": "receipt-itemizer",
+  "version": "1.0.0",
+  "description": "Receipt itemizer web application - V1 prototype",
+  "scripts": {
+    "install-all": "pip install -r requirements.txt && cd frontend && npm install",
+    "start-backend": "python app.py",
+    "start-frontend": "cd frontend && npm start",
+    "build-frontend": "cd frontend && npm run build",
+    "dev": "./start.sh"
+  },
+  "keywords": ["receipt", "ocr", "itemizer", "flask", "react"],
+  "author": "",
+  "license": "MIT"
+}
